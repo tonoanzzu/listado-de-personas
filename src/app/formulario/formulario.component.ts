@@ -11,11 +11,11 @@ import { PersonasService } from '../personas.service';
 })
 export class FormularioComponent implements OnInit {
   //@Output () personaCreada = new EventEmitter<Persona>();
-  //nombreInput:string;
-  //apellidoInput:string;
+  nombreInput:string;
+  apellidoInput:string;
 
-  @ViewChild('nombreInput') nombreInput: ElementRef;
-  @ViewChild('apellidoInput') apellidoInput: ElementRef;
+  //@ViewChild('nombreInput') nombreInput: ElementRef;
+  //@ViewChild('apellidoInput') apellidoInput: ElementRef;
 
   constructor(private LoggingService:LoggingService, private personasService: PersonasService) { 
     this.personasService.saludar.subscribe(
@@ -27,7 +27,7 @@ export class FormularioComponent implements OnInit {
   }
 
   onAgregarPersona(){
-    let persona1 = new Persona(this.nombreInput.nativeElement.value, this.apellidoInput.nativeElement.value);
+    let persona1 = new Persona(this.nombreInput, this.apellidoInput);
     //this.LoggingService.enviarMensajeAConsola("Enviamos persona con nombre: "+ persona1.nombre + " apellido: " + persona1.apellido)
     //this.personaCreada.emit(persona1);
   this.personasService.agregarPersona(persona1);
